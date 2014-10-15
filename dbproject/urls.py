@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 admin.autodiscover()
 from home.views import *
@@ -10,5 +10,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^home', 'home.views.home'),
+    url(r'^$', 'home.views.home'),
 )
+
+urlpatterns += staticfiles_urlpatterns()

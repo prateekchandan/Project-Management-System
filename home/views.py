@@ -4,5 +4,5 @@ from django.template.loader import get_template
 from home.models import *
 
 def home(request):
-	return render(request,"home/index.html",{"name":"Prateek"})
+	return render(request,"index.html",{"name":"Prateek"})
 	

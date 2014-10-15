@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -70,6 +71,11 @@ TEMPLATE_DIRS = (
         BASE_DIR+'/templates/',
     )
 
+STATICFILES_DIRS = (
+  BASE_DIR+'/static/',
+)
+STATIC_ROOT = os.path.dirname(os.path.realpath(__file__))
+STATIC_URL = '/static/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

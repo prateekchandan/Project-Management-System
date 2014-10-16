@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="template" tagdir="${pageContext.request.contextPath}/WEB-INF/tags" %>    
+<%@taglib prefix="template" tagdir="WEB-INF/tags" %>    
 
 <template:masterPage>
     <!-- Fixed navbar -->
@@ -78,8 +78,8 @@
  					<p><br/><a href="#" class="btn btn-theme">More Info</a></p>
  				</div>		 				
 	 		</div>
-	 	</div><! --/container -->
-	 </div><! --/service -->
+	 	</div>
+	 </div><%-- /service --%>
 	 
 	<!-- *****************************************************************************************************************
 	 PORTFOLIO SECTION

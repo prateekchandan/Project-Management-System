@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="template"  tagdir="/WEB-INF/tags" %>    
-
-<template:masterPage>
-    
+<%@ include file="WEB-INF/templates/header.jsp"%>
 
 	<!-- *****************************************************************************************************************
 	 HEADERWRAP
@@ -227,8 +224,8 @@
 	 			<p><a href="single-post.html">This theme is what you need.</a></p>
 	 		</div>
 	 		
-	 	</div><! --/row -->
-	 </div><! --/container -->
+	 	</div><%--/row --%>
+	 </div><%--/container --%>
 	 
 	<!-- *****************************************************************************************************************
 	 TESTIMONIALS
@@ -242,9 +239,9 @@
 	 			<h4><br/>Marcel Newman</h4>
 	 			<p>WEB DESIGNER - BLACKTIE.CO</p>
 	 			</div>
-	 		</div><! --/row -->
-	 	</div><! --/container -->
-	 </div><! --/twrap -->
+	 		</div><%--/row --%>
+	 	</div><%--/container --%>
+	 </div><%--/twrap --%>
 	 
 	<!-- *****************************************************************************************************************
 	 OUR CLIENTS
@@ -265,8 +262,8 @@
 			 	<div class="col-lg-3 col-md-3 col-sm-3">
 			 		<img src="assets/img/clients/client04.png" class="img-responsive">
 			 	</div>
-		 	</div><! --/row -->
-		 </div><! --/container -->
-	 </div><! --/cwrap -->
+		 	</div><%--/row --%>
+		 </div><%--/container --%>
+	 </div><%--/cwrap --%>
 
-</template:masterPage>
+<%@ include file="WEB-INF/templates/footer.jsp"%>

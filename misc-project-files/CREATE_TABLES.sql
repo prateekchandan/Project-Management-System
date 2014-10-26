@@ -8,6 +8,7 @@ drop table IF EXISTS tags cascade;
 create table USERS (
 	userid varchar(100) primary key,
 	name varchar(200) not null,
+	password varchar(200) not null,
 	roll_number varchar(100),
 	phone varchar(50),
 	email varchar(200) not null,
@@ -57,10 +58,10 @@ create table working_on(
 	primary key (userid,project_id)
 );
 
-insert into users values ('prateek','Prateek Chandan','120050042','9619730024','prateekchandan5545@gmail.com','IIT Bombay','student');
-insert into users values ('anurag','Anurag Shirolkar','120050003','9730033780','ashirolkar47@gmail.com','IIT Bombay','student');
-insert into users values ('jvs','JVS Shyam','120050052','9769187071','shyam123.jvs95@gmail.com','IIT Bombay','student');
-insert into users values ('nls','NL Sarda','','','nls@cse.iitb.ac.in','IIT Bombay','professor');
+insert into users values ('prateek','Prateek Chandan','1234','120050042','9619730024','prateekchandan5545@gmail.com','IIT Bombay','student');
+insert into users values ('anurag','Anurag Shirolkar','1234','120050003','9730033780','ashirolkar47@gmail.com','IIT Bombay','student');
+insert into users values ('jvs','JVS Shyam','120050052','1234','9769187071','shyam123.jvs95@gmail.com','IIT Bombay','student');
+insert into users values ('nls','NL Sarda','1234','','','nls@cse.iitb.ac.in','IIT Bombay','professor');
 
 insert into project values ('1','Project Management System','nls','Project Management system where students and professors from a particular institute or different institutes can list up the current projects they are working on or have previously worked upon or planning to work. The system will work as a platform where people can post requirements for their project and other people looking for some work opportunity can get a related work for themselves','in progress');
 

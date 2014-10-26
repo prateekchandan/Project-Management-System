@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="template"  tagdir="/WEB-INF/tags" %>    
+<%@ include file="WEB-INF/templates/header.jsp"%>    
 <%@ page isErrorPage="true" %>
 
-<template:masterPage>
 <div id="blue">
 	    <div class="container">
 			<div class="row">
@@ -22,4 +21,4 @@
 	 		
 	 	</div>
 </div>
-</template:masterPage>
+<%@ include file="WEB-INF/templates/footer.jsp"%>

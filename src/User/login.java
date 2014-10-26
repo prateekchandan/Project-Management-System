@@ -77,7 +77,7 @@ public class login extends HttpServlet {
 						HttpSession session = request.getSession();
 						session.setAttribute("login","1");
 						String uname=rs.getString("name"),email=rs.getString("email"),uid=rs.getString("userid");
-						session.setAttribute("name",uname);
+						session.setAttribute("user_name",uname);
 						session.setAttribute("email",email);
 						session.setAttribute("uid",uid);
 						response.sendRedirect(request.getContextPath()+"/login");

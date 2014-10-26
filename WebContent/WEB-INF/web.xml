@@ -37,6 +37,14 @@
     <url-pattern>/signup</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>user-profile</servlet-name>
+    <servlet-class>User.Profile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>user-profile</servlet-name>
+    <url-pattern>/user/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>project-all</servlet-name>
     <servlet-class>project.all</servlet-class>
   </servlet>
@@ -44,7 +52,6 @@
     <servlet-name>project-all</servlet-name>
     <url-pattern>/projects</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>project-tag</servlet-name>
     <servlet-class>project.Tags</servlet-class>

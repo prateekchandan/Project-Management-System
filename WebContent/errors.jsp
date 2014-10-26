@@ -6,7 +6,7 @@
 <div id="blue">
 	    <div class="container">
 			<div class="row">
-				<h3>${pageContext.exception.Message} Error Occured</h3>
+				<h3>${pageContext.exception.Message} Error Occured (Page Not Found)</h3>
 			</div><%-- /row --%>
 	    </div> <%-- /container --%>
 </div>

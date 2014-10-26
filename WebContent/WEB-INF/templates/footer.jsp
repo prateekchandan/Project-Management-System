@@ -4,7 +4,7 @@
 		 		<div class="col-lg-4">
 		 			<h4>About</h4>
 		 			<div class="hline-w"></div>
-		 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+		 			<p>Project Management system where students and professors from a particular institute or different institutes can list up the current projects they are working on or have previously worked upon or planning to work.<br> Author : <a href="http://prateekchandan.me">Prateek Chandan</a></p>
 		 		</div>
 		 		<div class="col-lg-4">
 		 			<h4>Social Links</h4>

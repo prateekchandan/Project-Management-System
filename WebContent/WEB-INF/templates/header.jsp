@@ -55,14 +55,14 @@
 	        String login =  (String)session.getAttribute("login");
 	        if(login=="1")
 	            {
-	        String name  = (String)session.getAttribute("name");
-	        String arr[] = name.split(" ", 3);
-	        name=arr[0];
+	        String user_name  = (String)session.getAttribute("user_name");
+	        String arr[] = user_name.split(" ", 1);
+	        user_name=arr[0];
 	            %>
 	         	 <li class="dropdown">
-	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome ${name} <b class="caret"></b></a>
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome ${user_name} <b class="caret"></b></a>
 	              <ul class="dropdown-menu">
-	                <li><a href="blog.html">HOME</a></li>
+	                <li><a href="${pageContext.request.contextPath}/user/<%= (String)session.getAttribute("uid")%>">HOME</a></li>
 	                <li><a href="${pageContext.request.contextPath}/logout">LOGOUT</a></li>
 	              </ul>
 	            </li>

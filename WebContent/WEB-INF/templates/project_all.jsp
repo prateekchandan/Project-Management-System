@@ -31,12 +31,12 @@
 			 			<h3 class="ctitle"><%=Pname%></h3>
 			 		</a>
 			 		<p>
-				 		<csmall2>By: <a href="${pageContext.request.contextPath}/user/<%=Uid%>"><%=Uname%></csmall2>
+				 		<csmall2>By: <a href="${pageContext.request.contextPath}/user/<%=Uid%>"><%=Uname%></a></csmall2>
 			 		</p>
 			 		<p>
 			 		<%=PDesc%>
 			 		</p>
-			 		<p><a href=""${pageContext.request.contextPath}/project/<%=Pid%>"">[Read More]</a></p>
+			 		<p><a href="${pageContext.request.contextPath}/project/<%=Pid%>">[Browse Project]</a></p>
 			 		<div class="hline"></div>
 			 		
 			 		<div class="spacing"></div>

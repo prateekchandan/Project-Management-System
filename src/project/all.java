@@ -74,7 +74,7 @@ public class all extends HttpServlet {
 			}
 			else
 			{
-				request.setAttribute("message", "Some error occured try again1");
+				request.setAttribute("message", "Database Error Occured");
 				request.getRequestDispatcher("/WEB-INF/templates/project_all.jsp").forward(request, response);
 	            return;
 			}

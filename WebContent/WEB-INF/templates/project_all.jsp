@@ -68,11 +68,13 @@
 		 		<div class="hline"></div>
 		 			<p>
 		 				<%
+		 				
 		 					ResultSet tags=(ResultSet)request.getAttribute("tags");
 		 					while(tags.next()){ 
 		 					%>
 		 						<a class="btn btn-theme" href="${pageContext.request.contextPath}/tags/<%=tags.getString("tagname")%>" role="button"><%= tags.getString("tagname") %></a>
 		 					<% }
+		 				
 		 				%>
 		            	
 		   

@@ -53,7 +53,7 @@ public class login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name,password,passchk = null;
 		name=request.getParameter("uid");
-		password=request.getParameter("password");
+		password=(String)request.getParameter("password");
 		
 		if(name == null || name=="" || password == null|| password == ""){
 			 request.setAttribute("message", "Username or password not set");
@@ -72,8 +72,8 @@ public class login extends HttpServlet {
 				int flag=0;
 				while (rs.next()) {
 					flag=1;
-					passchk=rs.getString("password");
-					if(password.equals(passchk)){
+					passchk=(String)rs.getString("password");
+					if(password==passchk || (password!=null && password.equals(passchk))){
 						HttpSession session = request.getSession();
 						session.setAttribute("login","1");
 						String uname=rs.getString("name"),email=rs.getString("email"),uid=rs.getString("userid");
@@ -98,14 +98,14 @@ public class login extends HttpServlet {
 			}
 			else
 			{
-				request.setAttribute("message", "Some error occured try again");
+				request.setAttribute("message", "Database Error");
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
 	            return;
 			}
 		}
 		catch (SQLException ex) {
 			
-			request.setAttribute("message", "Some error occured try again");
+			request.setAttribute("message", "Some error occured try again"+ex.getLocalizedMessage());
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
             return;
 		}

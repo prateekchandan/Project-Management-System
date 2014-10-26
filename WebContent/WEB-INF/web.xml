@@ -12,7 +12,6 @@
     <error-code>500</error-code>
     <location>/errors.jsp</location>
   </error-page>
-  <!-- USER SERVLETS -->
   <servlet>
     <servlet-name>login</servlet-name>
     <servlet-class>User.login</servlet-class>
@@ -37,9 +36,7 @@
     <servlet-name>signup</servlet-name>
     <url-pattern>/signup</url-pattern>
   </servlet-mapping>
-  
-  <!-- Project Servlets -->
-   <servlet>
+  <servlet>
     <servlet-name>project-all</servlet-name>
     <servlet-class>project.all</servlet-class>
   </servlet>
@@ -48,5 +45,12 @@
     <url-pattern>/projects</url-pattern>
   </servlet-mapping>
   
-  
+  <servlet>
+    <servlet-name>project-tag</servlet-name>
+    <servlet-class>project.Tags</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-tag</servlet-name>
+    <url-pattern>/tags/*</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -84,4 +84,20 @@
     <servlet-name>tag-add</servlet-name>
     <url-pattern>/add-tag</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>project-req-change</servlet-name>
+    <servlet-class>project.ChangeRequirement</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-req-change</servlet-name>
+    <url-pattern>/change-project-requirements</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>project-apply</servlet-name>
+    <servlet-class>project.ApplyProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-apply</servlet-name>
+    <url-pattern>/apply-project</url-pattern>
+  </servlet-mapping>
 </web-app>

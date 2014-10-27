@@ -22,7 +22,7 @@
 		 		<div class="hline"></div>
 		 		<br>
 		 		${desc}
-		 		
+		 		<hr>
 		 		<h3 class="ctitle">People working on this project</h3>
 		 		<div class="hline"></div>
 		 		<br>
@@ -35,6 +35,11 @@
 							<th>Stopped Working on</th>
 			 				</tr>
 		 			<% 
+		 			String admin_val=(String)request.getAttribute("admin");
+		 			int admin=0;
+		 			if(admin_val!=null && admin_val.equals("1"))
+		 				admin=1;
+		 			
 				 	ResultSet op=(ResultSet)request.getAttribute("users");
 			 		while(op.next()){
 			 			String pname=op.getString("name");
@@ -55,6 +60,59 @@
 			 				<td><%=(remarks!=null &&remarks.equals(""))?"--":remarks %></td>
 			 				<td><%=startdate %></td>
 			 				<td><%=(enddate==null)?"--":enddate %></td>
+			 			</tr>
+			 		
+			 			 <%
+			 			}
+			 		%>
+			 		</table>
+		 		<br>
+		 		<%
+		 		String toapply=(String)request.getAttribute("toapply");
+		 		if(toapply!=null && toapply.equals("1") ){%>
+		 		<a class="btn btn-primary" href="${pageContext.request.contextPath}/apply-project?id=${pid}">Apply For this Project</a>
+		 		<%} %>
+		 		<hr>
+		 		<h3 class="ctitle">Skills used in this project</h3>
+		 		<div class="hline"></div>
+		 		<br>
+		 		<table class="table">
+			 				<tr>
+			 				<th>Skill</th>
+			 				<th>No of Requirements</th>
+			 				
+			 				</tr>
+		 			<% 
+				 	ResultSet tset=(ResultSet)request.getAttribute("tagset");
+			 		while(tset.next()){
+			 			String tname=tset.getString("tagname");
+			 			String req=tset.getString("requirement");
+			 			%>
+			 			
+			 				
+			 			<tr>
+			 				<td><a href="${pageContext.request.contextPath}/tags/<%=tname %>"><b><%=tname %></b></a></td>
+			 				<%  if(admin==1){ %>
+			 				
+				 				<td>	 
+				 				<form method="post" action="${pageContext.request.contextPath}/change-project-requirements">
+				 				<div class="col-md-9">				
+					 				<input type="number" name="req" class="form-control" value="<%=req%>">
+					 				<input type="hidden" name="tagname" value="<%=tname %>">
+					 				<input type="hidden" name="pid" value="${pid}">
+					 			</div>
+					 			<div class="col-md-3">
+					 				<button class="btn btn-success btn-small">Save</button>
+					 			</div>
+					 			</form>
+				 				</td>
+				 				
+			 				
+			 				<% } else{%>
+			 				<td>
+			 					<%=req%>
+			 				</td>
+			 				<% } %>
 			 			</tr>
 			 		
 			 			 <%

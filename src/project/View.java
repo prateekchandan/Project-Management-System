@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DB.Conn;
 
@@ -57,8 +58,10 @@ public class View extends HttpServlet {
 				qProject.setInt(1,Integer.parseInt(pid));
 				ResultSet user = qProject.executeQuery();
 				int flag=0;
+				String UserId="";
 				while(user.next())
 				{
+					UserId=user.getString("userid");
 					request.setAttribute("uid",user.getString("userid"));
 					request.setAttribute("uname",user.getString("name"));
 					request.setAttribute("pid",user.getString("project_id"));
@@ -77,6 +80,38 @@ public class View extends HttpServlet {
 				qProject.setInt(1,Integer.parseInt(pid));
 				ResultSet otheruser = qProject.executeQuery();
 				request.setAttribute("users",otheruser);
+				
+				qString = "select *  from tagmap where  project_id = ?";
+				qProject=conn.prepareStatement(qString);
+				qProject.setInt(1,Integer.parseInt(pid));
+				ResultSet tagset = qProject.executeQuery();
+				request.setAttribute("tagset",tagset);
+				
+				HttpSession session = request.getSession();
+				String login=(String)session.getAttribute("login");
+				if(login!=null && login.equals("1"))
+				{
+					String uid=(String)session.getAttribute("uid");
+					if(uid != null && !(uid.equals(UserId))){
+						qString = "select *  from working_on where  project_id = ? and userid=?";
+						qProject=conn.prepareStatement(qString);
+						qProject.setInt(1,Integer.parseInt(pid));
+						qProject.setString(2,uid);
+						ResultSet testrs = qProject.executeQuery();
+						if(testrs.next()){
+							
+						}
+						else{
+							request.setAttribute("toapply", "1");
+						}
+					}
+					else
+					{
+						request.setAttribute("admin", "1");
+					}
+				}
+				
+				
 			}
 			else{
 				request.setAttribute("message", "Error Establishing DataBase Connection");

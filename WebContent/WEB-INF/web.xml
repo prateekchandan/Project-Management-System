@@ -92,12 +92,28 @@
     <servlet-name>project-req-change</servlet-name>
     <url-pattern>/change-project-requirements</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>project-apply</servlet-name>
     <servlet-class>project.ApplyProject</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>project-apply</servlet-name>
     <url-pattern>/apply-project</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>project-saveRemark</servlet-name>
+    <servlet-class>project.SaveRemark</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-saveRemark</servlet-name>
+    <url-pattern>/save-remarks</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>project-changeStatus</servlet-name>
+    <servlet-class>project.ChangeStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-changeStatus</servlet-name>
+    <url-pattern>/change-working-status</url-pattern>
   </servlet-mapping>
 </web-app>

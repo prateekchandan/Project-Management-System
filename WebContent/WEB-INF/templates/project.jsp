@@ -10,6 +10,12 @@
 			</div><%-- /row --%>
 	    </div> <%-- /container --%>
 </div>
+<%
+	String admin_val=(String)request.getAttribute("admin");
+	int admin=0;
+	if(admin_val!=null && admin_val.equals("1"))
+		admin=1;
+%>
 <div class="container mtb">
 	 	<div class="row">
 	 	
@@ -33,12 +39,11 @@
 			 				<th>Remarks</th>
 			 				<th>Started Working on</th>
 							<th>Stopped Working on</th>
+							<%  if(admin==1){ %>
+							<th>Action</th>
+							<%} %>
 			 				</tr>
 		 			<% 
-		 			String admin_val=(String)request.getAttribute("admin");
-		 			int admin=0;
-		 			if(admin_val!=null && admin_val.equals("1"))
-		 				admin=1;
 		 			
 				 	ResultSet op=(ResultSet)request.getAttribute("users");
 			 		while(op.next()){
@@ -48,6 +53,10 @@
 			 			String remarks=op.getString("remarks");
 			 			String startdate=op.getString("date");
 			 			String enddate=op.getString("end_date");
+			 			if(status.equals("hold"))
+			 			{
+			 				status="On Hold";
+			 			}
 			 			
 			 			%>
 			 			
@@ -57,9 +66,36 @@
 			 					<a href="${pageContext.request.contextPath}/user/<%=pid %>" role="button"> <b><%=pname %></b></a>
 			 				</td>
 			 				<td><%=status %></td>
+			 				<%  if(admin==1){ %>
+			 				<td>
+			 					<form action="${pageContext.request.contextPath}/save-remarks" method="post">
+			 						<input type="hidden" name="uid" value="<%=pid %>">
+			 						<input class="form-control" name="remarks" value="<%=remarks%>" placeholder="Type remarks and press Enter">
+			 						<input type="hidden" name="pid" value="${pid}">
+			 					</form>
+			 				</td>
+			 				<%} else{ %>
 			 				<td><%=(remarks!=null &&remarks.equals(""))?"--":remarks %></td>
+			 				<%} %>
 			 				<td><%=startdate %></td>
 			 				<td><%=(enddate==null)?"--":enddate %></td>
+			 				<%  if(admin==1){ %>
+			 					<td>
+								<%if(status.equals("applied")){ %>
+									<a href="${pageContext.request.contextPath}/change-working-status?pid=${pid}&user=<%=pid%>&action=accept" class="btn btn-xs btn-success">Accept</a>
+									<a href="${pageContext.request.contextPath}/change-working-status?pid=${pid}&user=<%=pid%>&action=delete" class="btn btn-xs btn-danger">Delete Request</a>
+								<%} else if(status.equals("working")){ %>
+									<a href="${pageContext.request.contextPath}/change-working-status?pid=${pid}&user=<%=pid%>&action=hold" class="btn btn-xs btn-warning">Put on Hold</a>
+									<a href="${pageContext.request.contextPath}/change-working-status?pid=${pid}&user=<%=pid%>&action=end" class="btn btn-xs btn-info">Completed Project</a>
+								<%} else if(status.equals("On Hold")){ %>
+									<a href="${pageContext.request.contextPath}/change-working-status?pid=${pid}&user=<%=pid%>&action=accept" class="btn btn-xs btn-success">Started Working</a>
+									<a href="${pageContext.request.contextPath}/change-working-status?pid=${pid}&user=<%=pid%>&action=end" class="btn btn-xs btn-info">Completed Project</a>
+								<%}else{ %>
+									<p class="bg-success">Completed</p>
+								<%} %>
+								
+								</td>
+							<%} %>
 			 			</tr>
 			 		
 			 			 <%

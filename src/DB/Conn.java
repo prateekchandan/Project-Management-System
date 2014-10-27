@@ -15,7 +15,6 @@ public class Conn {
 			con = DriverManager.getConnection(dbURL2, user, pass);
 			System.out.println("init"+con);
       	} catch (Exception e) {
-			// TODO Auto-generated catch block
       		e.printStackTrace();
       	}
 	 }

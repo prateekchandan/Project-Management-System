@@ -27,9 +27,9 @@
 		 			</p>
 		 		</div>
 		 	
-		 	</div><! --/row -->
-	 	</div><! --/container -->
-	 </div><! --/footerwrap -->
+		 	</div><%--/row --%>
+	 	</div><%--/container --%>
+	 </div><%--/footerwrap --%>
 	 
     <!-- Bootstrap core JavaScript
     ================================================== -->

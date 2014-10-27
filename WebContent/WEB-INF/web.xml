@@ -60,4 +60,28 @@
     <servlet-name>project-tag</servlet-name>
     <url-pattern>/tags/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>project-view</servlet-name>
+    <servlet-class>project.View</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-view</servlet-name>
+    <url-pattern>/project/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>project-add</servlet-name>
+    <servlet-class>project.Add</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-add</servlet-name>
+    <url-pattern>/add-project</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>tag-add</servlet-name>
+    <servlet-class>project.TagAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tag-add</servlet-name>
+    <url-pattern>/add-tag</url-pattern>
+  </servlet-mapping>
 </web-app>

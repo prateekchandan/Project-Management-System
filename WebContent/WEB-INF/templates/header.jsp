@@ -18,6 +18,8 @@
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/assets/css/chosen.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/assets/css/redit.min.css" rel="stylesheet">
 
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -32,6 +34,8 @@
     <script src="${pageContext.request.contextPath}/assets/js/modernizr.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/chosen.jquery.min.js"></script>
+  	<script src="${pageContext.request.contextPath}/assets/js/redit.js"></script>
   </head>
 
   <body>
@@ -53,7 +57,7 @@
             <li><a href="${pageContext.request.contextPath}/projects">PROJECTS</a></li>
             <%
 	        String login =  (String)session.getAttribute("login");
-	        if(login=="1")
+	        if(login!=null && login.equals("1"))
 	            {
 	        String user_name  = (String)session.getAttribute("user_name");
 	        String arr[] = user_name.split(" ", 1);
@@ -63,6 +67,7 @@
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome ${user_name} <b class="caret"></b></a>
 	              <ul class="dropdown-menu">
 	                <li><a href="${pageContext.request.contextPath}/user/<%= (String)session.getAttribute("uid")%>">HOME</a></li>
+	                <li><a href="${pageContext.request.contextPath}/add-project">ADD NEW PROJECT</a></li>
 	                <li><a href="${pageContext.request.contextPath}/logout">LOGOUT</a></li>
 	              </ul>
 	            </li>

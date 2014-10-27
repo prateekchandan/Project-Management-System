@@ -27,9 +27,11 @@
 	 						String Uid=rs.getString("userid");
 	 						String PDesc=rs.getString("description");
 	 			%>
-			 		<a href="${pageContext.request.contextPath}/project/<%=Pid%>">
-			 			<h3 class="ctitle"><%=Pname%></h3>
-			 		</a>
+			 		
+			 		<h3 class="ctitle">
+			 			<a href="${pageContext.request.contextPath}/project/<%=Pid%>"><%=Pname%>
+			 			</a>
+			 		</h3>
 			 		<p>
 				 		<csmall2>By: <a href="${pageContext.request.contextPath}/user/<%=Uid%>"><%=Uname%></a></csmall2>
 			 		</p>

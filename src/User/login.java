@@ -1,7 +1,6 @@
 package User;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,7 +36,7 @@ public class login extends HttpServlet {
 		 
 		HttpSession session = request.getSession();
 		String login=(String)session.getAttribute("login");
-		if(login == "1")
+		if(login!=null && login.equals("1"))
 		{
 			response.sendRedirect(request.getContextPath());
 			return;

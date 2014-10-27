@@ -68,6 +68,12 @@ public class Profile extends HttpServlet {
 				qUser.setString(1,uid);
 				ResultSet ownprojects = qUser.executeQuery();
 				request.setAttribute("ownprojects",ownprojects);
+				
+				qString = "select *,start_time::date as date,end_time::date as end_date  from working_on,project where working_on.project_id=project.project_id and userid = ?";
+				qUser=conn.prepareStatement(qString);
+				qUser.setString(1,uid);
+				ResultSet otherprojects = qUser.executeQuery();
+				request.setAttribute("otherprojects",otherprojects);
 			}
 		}
 		catch (SQLException ex) {	
@@ -81,7 +87,7 @@ public class Profile extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
 
 }

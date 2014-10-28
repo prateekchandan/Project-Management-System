@@ -60,7 +60,9 @@
 		 		<div class="hline"></div>
 		 			<p>
 		 				<br/>
-		 				<input type="text" class="form-control" placeholder="Search something">
+		 				<form action="${pageContext.request.contextPath}/search">
+		 				<input type="text" class="form-control" name="q" placeholder="Search projects or tags">
+		 				</form>
 		 			</p>
 		 			
 		 		<div class="spacing"></div>

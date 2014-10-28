@@ -116,4 +116,12 @@
     <servlet-name>project-changeStatus</servlet-name>
     <url-pattern>/change-working-status</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>project-search</servlet-name>
+    <servlet-class>project.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-search</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
 </web-app>

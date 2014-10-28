@@ -117,7 +117,7 @@ public class signup extends HttpServlet {
 					checkStudent.executeUpdate();
 					HttpSession session = request.getSession();
 					session.setAttribute("login","1");
-					session.setAttribute("name",name);
+					session.setAttribute("user_name",name);
 					session.setAttribute("email",email);
 					session.setAttribute("uid",uid);
 					response.sendRedirect(request.getContextPath()+"/signup");

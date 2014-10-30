@@ -10,4 +10,4 @@ Team Members:
 2. Anurag Shirolkar
 3. JVS Shyam
 
-Currently the proeject is hosted at [http://db.prateekchandan.me here]
+Currently the proeject is hosted at http://db.prateekchandan.me

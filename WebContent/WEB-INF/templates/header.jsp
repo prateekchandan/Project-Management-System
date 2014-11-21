@@ -54,11 +54,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="${pageContext.request.contextPath}">Project Management System</a>
+          <a class="navbar-brand" href="${pageContext.request.contextPath}/">Project Management System</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li><a href="${pageContext.request.contextPath}">HOME</a></li>
+            <li><a href="${pageContext.request.contextPath}/">HOME</a></li>
             <li><a href="${pageContext.request.contextPath}/projects">PROJECTS</a></li>
             <%
 	        String login =  (String)session.getAttribute("login");

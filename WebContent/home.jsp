@@ -146,9 +146,9 @@
 	 		<div class="row">
 	 			<div class="col-lg-8 col-lg-offset-2">
 	 			<i class="fa fa-comment-o"></i>
-	 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-	 			<h4><br/>Marcel Newman</h4>
-	 			<p>WEB DESIGNER - BLACKTIE.CO</p>
+	 			<p>This project is going to be very much helpful to the students and professors of students all over India. It will help people to learn and get educated by other's work. Once built up properly it has the potential to be a huge database  As big as even wikipedia</p>
+	 			<h4><br/>An Old Monk</h4>
+	 			<p>Master of Universe</p>
 	 			</div>
 	 		</div><%--/row --%>
 	 	</div><%--/container --%>
@@ -168,7 +168,7 @@
 			 		<h3><a href="http://www.cse.iitb.ac.in/~anuragshirolkar/">Anurag Shirolkar</a></h3>
 			 	</div>
 			 	<div class="col-lg-4 col-md-4 col-sm-4">
-			 		<h3><a href="#">JVS Shyam</a></h3>
+			 		<h3><a href="http://www.cse.iitb.ac.in/~jvs/">JVS Shyam</a></h3>
 			 	</div>
 			 	
 		 	</div><%--/row --%>

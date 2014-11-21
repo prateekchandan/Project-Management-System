@@ -11,9 +11,7 @@
 		 			<div class="hline-w"></div>
 		 			<p>
 		 				<a href="https://www.facebook.com/prateekchandan5545"><i class="fa fa-facebook"></i></a>
-		 				<a href="#"><i class="fa fa-github"></i></a>
-		 				<a href="#"><i class="fa fa-instagram"></i></a>
-		 				<a href="#"><i class="fa fa-tumblr"></i></a>
+		 				<a href="https://github.com/prateekchandan/Remote-Desktop-Connection"><i class="fa fa-github"></i></a>
 		 			</p>
 		 		</div>
 		 		<div class="col-lg-4">

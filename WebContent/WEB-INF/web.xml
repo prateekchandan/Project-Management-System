@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>Project Management System</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
   <error-page>
     <error-code>404</error-code>
@@ -12,6 +12,14 @@
     <error-code>500</error-code>
     <location>/errors.jsp</location>
   </error-page>
+  <servlet>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>DB.Home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>login</servlet-name>
     <servlet-class>User.login</servlet-class>
@@ -131,5 +139,13 @@
   <servlet-mapping>
     <servlet-name>project-edit</servlet-name>
     <url-pattern>/edit-project/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>user-edit</servlet-name>
+    <servlet-class>User.EditProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>user-edit</servlet-name>
+    <url-pattern>/edit-profile</url-pattern>
   </servlet-mapping>
 </web-app>

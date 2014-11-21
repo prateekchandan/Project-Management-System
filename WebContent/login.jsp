@@ -31,7 +31,7 @@
 	       
 	 			<div class="hline"></div>
 	 				<p></p>
-		 			<form role="form" method="POST">
+		 			<form role="form" method="POST" action="${pageContext.request.contextPath}/login">
 					  <div class="form-group">
 					    <label for="name">UserID / email</label>
 					    <input type="text" class="form-control" name="uid" required>

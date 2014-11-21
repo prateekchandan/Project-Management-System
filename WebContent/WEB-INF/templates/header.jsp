@@ -36,6 +36,11 @@
     <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/chosen.jquery.min.js"></script>
   	<script src="${pageContext.request.contextPath}/assets/js/redit.js"></script>
+  	<style>
+  	.search-field input{
+  		height:30px !important;
+  	}
+  	</style>
   </head>
 
   <body>
@@ -68,6 +73,7 @@
 	              <ul class="dropdown-menu">
 	                <li><a href="${pageContext.request.contextPath}/user/<%= (String)session.getAttribute("uid")%>">HOME</a></li>
 	                <li><a href="${pageContext.request.contextPath}/add-project">ADD NEW PROJECT</a></li>
+	                <li><a href="${pageContext.request.contextPath}/edit-profile">EDIT PROFILE</a></li>
 	                <li><a href="${pageContext.request.contextPath}/logout">LOGOUT</a></li>
 	              </ul>
 	            </li>

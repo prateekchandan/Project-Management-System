@@ -17,8 +17,16 @@
 <div class="container mtb">
 	 	<div class="row">
 		 	<div class="col-md-10 col-md-offset-1">
-		 		<h3 class="ctitle">Personal Info</h3>
+		 		<h3 class="ctitle">Personal Info
+		 		<% if(sessionuid!=null && sessionuid.equals(useruid)) {%>
+		 		<span class="pull-right" style="display:block"><a class="btn btn-info" href="${pageContext.request.contextPath}/edit-profile"><i class="fa fa-edit"></i>Edit Profile</a></span>
+		 		
+		 		<% } %>
+		 		</h3>
 		 		<div class="hline"></div>
+		 		
+	
+		 		
 		 		<br>
 		 		<div class="row">
 		 			<label class="col-md-3">User Id : </label>

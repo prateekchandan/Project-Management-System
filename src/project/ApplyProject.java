@@ -38,6 +38,7 @@ public class ApplyProject extends HttpServlet {
 		if(!(login!=null && login.equals("1"))){
 			response.setContentType("text/html");
 		    request.getRequestDispatcher("/login.jsp").forward(request, response);
+		    return;
 		}
 		
 		String uid=(String)session.getAttribute("uid");

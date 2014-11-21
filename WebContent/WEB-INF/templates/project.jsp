@@ -12,6 +12,7 @@
 </div>
 <%
 	String admin_val=(String)request.getAttribute("admin");
+	String detdes=(String)request.getAttribute("d_desc");
 	int admin=0;
 	if(admin_val!=null && admin_val.equals("1"))
 		admin=1;
@@ -22,13 +23,22 @@
 	 		<%-- BLOG POSTS LIST --%>
 	 		<div class="col-lg-8">
 	 			<h4>Added By : <a href="${pageContext.request.contextPath}/user/${uid}">${uname}</a></h4>
-	 			
+	 			<%  if(admin==1){ %>
+	 				<a class="btn btn-primary" href="${pageContext.request.contextPath}/edit-project/${pid}"><i class="fa fa-edit"></i>Edit this Project</a>
+	 			<% } %>
 	 			<hr>
 	 			<h3 class="ctitle">Project Description</h3>
 		 		<div class="hline"></div>
 		 		<br>
 		 		${desc}
+		 		<% if(detdes.length() > 10){ %>
+		 		<h3 class="ctitle">Detailed Description</h3>
+		 		<div class="hline"></div>
+		 		<br>
+		 		${d_desc}
 		 		<hr>
+		 		<% } %>
+		 		
 		 		<h3 class="ctitle">People working on this project</h3>
 		 		<div class="hline"></div>
 		 		<br>

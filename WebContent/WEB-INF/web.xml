@@ -124,4 +124,12 @@
     <servlet-name>project-search</servlet-name>
     <url-pattern>/search</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>project-edit</servlet-name>
+    <servlet-class>project.Edit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>project-edit</servlet-name>
+    <url-pattern>/edit-project/*</url-pattern>
+  </servlet-mapping>
 </web-app>

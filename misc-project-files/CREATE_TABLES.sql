@@ -21,6 +21,7 @@ create table project(
 	project_name varchar(500) not null,
 	addedby varchar(100) not null,
 	description text,
+	detailed_description text,
 	status varchar(50) check (status in ('completed','in progress','hold')) not null,
 	foreign key (addedby) references USERS(userid) on delete cascade
 );
@@ -63,7 +64,7 @@ insert into users values ('anurag','Anurag Shirolkar','1234','120050003','973003
 insert into users values ('jvs','JVS Shyam','120050052','1234','9769187071','shyam123.jvs95@gmail.com','IIT Bombay','student');
 insert into users values ('nls','NL Sarda','1234','','','nls@cse.iitb.ac.in','IIT Bombay','professor');
 
-insert into project values ('1','Project Management System','nls','Project Management system where students and professors from a particular institute or different institutes can list up the current projects they are working on or have previously worked upon or planning to work. The system will work as a platform where people can post requirements for their project and other people looking for some work opportunity can get a related work for themselves','in progress');
+insert into project values ('1','Project Management System','nls','Project Management system where students and professors from a particular institute or different institutes can list up the current projects they are working on or have previously worked upon or planning to work. The system will work as a platform where people can post requirements for their project and other people looking for some work opportunity can get a related work for themselves','','in progress');
 
 insert into tags values ('C++');
 insert into tags values ('java');

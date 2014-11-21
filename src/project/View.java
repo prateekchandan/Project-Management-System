@@ -48,7 +48,7 @@ public class View extends HttpServlet {
 		}
 		catch (SQLException ex) {	
 			request.setAttribute("message", "Some error occured try again");
-			request.getRequestDispatcher("/WEB-INF/templates/project_all.jsp").forward(request, response);
+			request.getRequestDispatcher("/errors.jsp").forward(request, response);
             return;
 		}
 		
@@ -67,6 +67,10 @@ public class View extends HttpServlet {
 					request.setAttribute("pid",user.getString("project_id"));
 					request.setAttribute("pname",user.getString("project_name"));
 					request.setAttribute("desc",user.getString("description"));
+					if(user.getString("detailed_description")==null)
+						request.setAttribute("d_desc","");
+					else
+						request.setAttribute("d_desc",user.getString("detailed_description"));
 					flag=1;
 					
 				}

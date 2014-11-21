@@ -8,9 +8,9 @@ The project is built on JAVA and JSP on its backend with PostgreSQL as database 
 
 Team Members:
 
-1. Prateek Chandan
-2. Anurag Shirolkar
-3. JVS Shyam
+1. Prateek Chandan - 120050042
+2. Anurag Shirolkar - 120050003
+3. JVS Shyam - 120050052
 
 Currently the proeject is hosted at [http://db.prateekchandan.me](http://db.prateekchandan.me)
 

@@ -12,6 +12,6 @@ Team Members:
 2. Anurag Shirolkar - 120050003
 3. JVS Shyam - 120050052
 
-Currently the proeject is hosted at [http://db.prateekchandan.me](http://db.prateekchandan.me)
+Currently the proeject is hosted at [Not hosted]
 
 Read the Project Report [here](https://docs.google.com/document/d/1-EDrMOGLBnncTV5JxzkNxD_UreJaI_xLCWFkHVq4e6I/edit?usp=sharing)

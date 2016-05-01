@@ -145,17 +145,13 @@
 	 <div id="cwrap">
 		 <div class="container">
 		 	<div class="row centered">
-			 	<h3>OUR Team</h3>
-			 	<div class="col-lg-4 col-md-4 col-sm-4">
-			 		<h3><a href="http://www.prateekchandan.me">Prateek Chandan</a></h3>
+			 	<h2>OUR Team</h2>
+			 	<div class="col-lg-4 col-md-4 col-sm-4 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
+			 		<h2><a href="http://www.cse.iitb.ac.in/~jvs/">Shyam JVS</a></h2>
 			 	</div>
 			 	<div class="col-lg-4 col-md-4 col-sm-4">
-			 		<h3><a href="http://www.cse.iitb.ac.in/~anuragshirolkar/">Anurag Shirolkar</a></h3>
+			 		<h2><a href="http://www.cse.iitb.ac.in/~vikasgarg/">Vikas Garg</a></h2>
 			 	</div>
-			 	<div class="col-lg-4 col-md-4 col-sm-4">
-			 		<h3><a href="http://www.cse.iitb.ac.in/~jvs/">JVS Shyam</a></h3>
-			 	</div>
-			 	
 		 	</div>
 		 </div>
 	 </div>

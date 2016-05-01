@@ -83,21 +83,22 @@
         <div class="col-lg-4">
           <h4>About</h4>
           <div class="hline-w"></div>
-          <p>Project Management system where students and professors from a particular institute or different institutes can list up the current projects they are working on or have previously worked upon or planning to work.<br> Author : <a href="http://prateekchandan.me">Prateek Chandan</a></p>
+          <p>Project Management system where students and professors from a particular institute or different institutes can list up the current projects they are working on or have previously worked upon or planning to work.<br>
+          </p>
         </div>
         <div class="col-lg-4">
           <h4>Social Links</h4>
           <div class="hline-w"></div>
           <p>
-            <a href="https://www.facebook.com/prateekchandan5545"><i class="fa fa-facebook"></i></a>
-            <a href="https://github.com/prateekchandan/Remote-Desktop-Connection"><i class="fa fa-github"></i></a>
+            <a href="https://www.facebook.com/shyam.jvs"><i class="fa fa-facebook"></i></a>
+            <a href="https://github.com/shyamjvs"><i class="fa fa-github"></i></a>
           </p>
         </div>
         <div class="col-lg-4">
           <h4>Our Bunker</h4>
           <div class="hline-w"></div>
           <p>
-            3rd year<br/>
+            4th year<br/>
             Department of Computer Science<br/>
             IIT Bombay<br/>
           </p>

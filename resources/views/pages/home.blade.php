@@ -23,7 +23,7 @@
 				</div>
 				<br>
 				<div class="col-lg-8 col-lg-offset-2 himg">
-					<form action="${pageContext.request.contextPath}/search">
+					<form action="/search">
 		 				<input type="text" class="form-control" name="q" id="search-box" placeholder="Search projects or tags">
 		 				<button class="btn btn-search"> <i class="fa fa-search"></i></button>
 		 			</form>
@@ -42,19 +42,19 @@
  					<i class="fa fa-heart-o"></i>
  					<h4>Add your Project</h4>
  					<p>Show your skills and add your project awesomely on this platform and let people see and learn from it</p>
- 					<p><br/><a href="${pageContext.request.contextPath}/add-project" class="btn btn-theme">Add Project</a></p>
+ 					<p><br/><a href="/add-project" class="btn btn-theme">Add Project</a></p>
  				</div>
  				<div class="col-md-4">
  					<i class="fa fa-search"></i>
  					<h4>Browse Projects</h4>
  					<p>Among all the awesome Projects on this platform , increase your knowledge graph to infinity. Browse among multiple projects in our system and read about them. Also you can apply to work on that project.</p>
- 					<p><br/><a href="${pageContext.request.contextPath}/projects" class="btn btn-theme">Browse Projects</a></p>
+ 					<p><br/><a href="/projects" class="btn btn-theme">Browse Projects</a></p>
  				</div>
  				<div class="col-md-4">
  					<i class="fa fa-trophy"></i>
  					<h4>Maintain your Profile</h4>
  					<p>Add yourself to the Awesomeness by maintain your project Profile. This can serve you as your project resume where other people can see your work and remarks directly from your project creator.</p>
- 					<p><br/><a href="${pageContext.request.contextPath}/edit-profile" class="btn btn-theme">Edit Profile</a></p>
+ 					<p><br/><a href="/edit-profile" class="btn btn-theme">Edit Profile</a></p>
  				</div>		 				
 	 		</div>
 	 	</div>
@@ -69,24 +69,18 @@
         <div class="portfolio-centered">
             <div class="recentitems portfolio">
             
-            		<%
-		 				
-		 					ResultSet tags=(ResultSet)request.getAttribute("tags");
-		 					while(tags.next()){ 
-		 					%>
+            		@foreach($tags as $tag)
 		 					<div class="portfolio-item graphic-design">
 								<div class="he-wrap tpl6">
 									<div class="" style="padding:4px;background:url('http://subtlepatterns.com/patterns/upfeathers.png') repeat scroll 0% 0% transparent">
 										<div class="bg a0">
-			                                <h3 class="a1"><%= tags.getString("tagname") %></h3>
-			                                <a href="${pageContext.request.contextPath}/tags/<%=tags.getString("tagname")%>" class="dmbutton a2"><i class="fa fa-link"></i></a>
+			                                <h3 class="a1">{{$tag->tagname}}</h3>
+			                                <a href="/tags/{{$tag->tagname}}" class="dmbutton a2"><i class="fa fa-link"></i></a>
 			                        	</div><!-- he bg -->
 									</div><!-- he view -->		
 								</div><!-- he wrap -->
 							</div><!-- end col-12 -->
-		 					<% }
-		 				
-		 				%>
+		 					@endforeach
 				
                             
               
@@ -111,26 +105,19 @@
 	 		<div class="col-lg-3">
 	 			<h4>Recent Projects</h4>
 	 			<div class="hline"></div>
-	 			<%
-		 				
-		 					ResultSet projects=(ResultSet)request.getAttribute("projects");
-		 					while(projects.next()){ 
-		 					%>
-		 					<p><a href="${pageContext.request.contextPath}/project/<%= projects.getString("project_id") %>"><%= projects.getString("project_name") %></a></p>
-		 		<% } %>
+	 			@foreach($projects as $project)
+		 					<p><a href="/project/{{$project->project_id}}">{{$project->project_name}}</a></p>
+		 		@endforeach
 	 		
 	 		</div>
 	 		
 	 		<div class="col-lg-3">
 	 			<h4>Top Users</h4>
 	 			<div class="hline"></div>
-	 			<%
-		 				
-		 					ResultSet Users=(ResultSet)request.getAttribute("users");
-		 					while(Users.next()){ 
-		 					%>
-		 					<p><a href="${pageContext.request.contextPath}/user/<%= Users.getString("userid") %>"><%= Users.getString("name") %></a></p>
-		 		<% } %>
+	 			@foreach($users as $user)
+	 			
+		 					<p><a href="/user/{{$user->userid}}">{{$user->name}}</a></p>
+		 		@endforeach
 	 		</div>
 	 		
 	 	</div>

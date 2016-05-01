@@ -16,6 +16,7 @@ class HomeController extends Controller
     {
         if(Session::has('user'))
         	Auth::login(Session::get('user'));
+
     }
 	public function index()
 	{
@@ -98,8 +99,10 @@ class HomeController extends Controller
 	}
 
 	public function logout(){
+		
+		Auth::logout();
 		Session::remove('user');
-		return redirect()->to('/');
+		return $this->index();//redirect()->to('/');
 	}
 
 	public function add_project_view(){

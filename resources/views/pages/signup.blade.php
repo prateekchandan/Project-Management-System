@@ -71,7 +71,7 @@
 					  </div>
 					  <button type="submit" class="btn btn-theme">Register</button>
 					</form>
-					<a href="${pageContext.request.contextPath}/login" class="btn btn-theme">Already Registered?</a>
+					<a href="/login" class="btn btn-theme">Already Registered?</a>
 			</div>
 		</div>
 </div>

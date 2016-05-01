@@ -3,7 +3,7 @@
 <div id="blue">
 	    <div class="container">
 			<div class="row">
-				<h3>Showing {{sizeof($projects)}} projects</h3>
+				<h3>{{$message}}</h3>
 			</div>
 	    </div> 
 </div>
@@ -12,11 +12,14 @@
 	 	
 	 		
 	 		<div class="col-lg-8">
+	 		@if(sizeof($projects)==0)
+	 		<blockquote>No Project Found</blockquote>
+	 		@endif
 	 		@foreach($projects as $project)
 	 			
 			 		
 			 		<h3 class="ctitle">
-			 			<a href="/project/{{$project->project_id}}>">{{$project->project_name}}
+			 			<a href="/project/{{$project->project_id}}">{{$project->project_name}}
 			 			</a>
 			 		</h3>
 			 		<p>

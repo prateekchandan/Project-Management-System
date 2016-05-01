@@ -31,4 +31,10 @@ Route::group(['middleware' =>[ 'web']],function(){
 	Route::get('/signup', 'HomeController@signup_view');
 	Route::post('/signup', 'HomeController@signup');
 
+	Route::get('/change-working-status', 'HomeController@changeStatus');
+	Route::post('/change-project-requirements', 'HomeController@changeRequirements');
+
+	Route::get('/edit-project/{id}', 'HomeController@edit_project_view');
+	Route::post('/edit-project/{id}', 'HomeController@edit_project');
+
 });

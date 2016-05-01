@@ -73,7 +73,7 @@
 								@elseif($user->status=="working")
 									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=hold" class="btn btn-xs btn-warning">Put on Hold</a>
 									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=end" class="btn btn-xs btn-info">Completed Project</a>
-								@elseif($user->status=="On Hold")
+								@elseif($user->status=="hold")
 									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=accept" class="btn btn-xs btn-success">Started Working</a>
 									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=end" class="btn btn-xs btn-info">Completed Project</a>
 								@else
@@ -115,6 +115,7 @@
 					 				<input type="number" name="req" class="form-control" value="{{$map->requirement}}">
 					 				<input type="hidden" name="tagname" value="{{$map->tagname}}">
 					 				<input type="hidden" name="pid" value="{{$project->project_id}}">
+					 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 					 			</div>
 					 			<div class="col-md-3">
 					 				<button class="btn btn-success btn-small">Save</button>

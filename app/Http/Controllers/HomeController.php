@@ -211,4 +211,50 @@ class HomeController extends Controller
 		return redirect()->to('/');
 	}
 
+	public function changeStatus(Request $request)
+	{
+		if(Auth::guest())
+			return redirect()->to('/');
+
+		$project = Project::find($request->input('pid'));
+		if(is_null($project))
+			return view('pages.error',['message'=>"Invalid Project ID"]);
+
+		$action = $request->input('action');
+		$obj = DB::table('working_on')->where('userid','=',$request->input('user'))->where('project_id','=',$request->input('pid'));
+
+		if($action=="delete")
+			$obj->delete();	
+		else if($action=="accept")
+			$obj->update(['status'=>'working']);
+		else if($action=="hold")
+			$obj->update(['status'=>'hold']);
+		else if($action=="end")
+			$obj->update(['status'=>'completed']);
+ 		return redirect()->to('project/'.$project->project_id);
+	}
+
+	public function changeRequirements(Request $request)
+	{
+		if(Auth::guest())
+			return redirect()->to('/');
+
+		$project = Project::find($request->input('pid'));
+		if(is_null($project))
+			return view('pages.error',['message'=>"Invalid Project ID"]);
+
+		DB::table('tagmap')->where('tagname','=',$request->input('tagname'))->where('project_id','=',$request->input('pid'))->update(['requirement'=>$request->input('req')]);
+		return redirect()->to('project/'.$project->project_id);
+	}
+
+	public function edit_project_view()
+	{
+		return view('pages.error');
+	}
+
+	public function edit_project()
+	{
+		return view('pages.error');
+	}
+
 }

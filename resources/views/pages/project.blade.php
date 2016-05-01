@@ -13,13 +13,13 @@
 	 		<div class="col-lg-8">
 	 			<h4>Added By : <a href="/user/{{$project->userid}}">{{$project->name}}</a></h4>
 	 			@if($admin==1)
-	 				<a class="btn btn-primary" href="/edit-project/{{$project->project_project_id}}"><i class="fa fa-edit"></i>Edit this Project</a>
+	 				<a class="btn btn-primary" href="/edit-project/{{$project->project_id}}"><i class="fa fa-edit"></i>Edit this Project</a>
 	 			@endif
 	 			<hr>
 	 			<h3 class="ctitle">Project Description</h3>
 		 		<div class="hline"></div>
 		 		<br>
-		 		{{$project->description}}
+		 		{!!$project->description!!}
 		 		@if(sizeof($project->detailed_description)>10)
 		 		<h3 class="ctitle">Detailed Description</h3>
 		 		<div class="hline"></div>
@@ -42,22 +42,7 @@
 							<th>Action</th>
 							@endif
 			 				</tr>
-		 			<% 
 		 			
-				 	ResultSet op=(ResultSet)request.getAttribute("users");
-			 		while(op.next()){
-			 			String pname=op.getString("name");
-			 			String pid=op.getString("userid");
-			 			String status=op.getString("status");
-			 			String remarks=op.getString("remarks");
-			 			String startdate=op.getString("date");
-			 			String enddate=op.getString("end_date");
-			 			if(status.equals("hold"))
-			 			{
-			 				status="On Hold";
-			 			}
-			 			
-			 			%>
 			 			
 			 			@foreach($users as $user)
 			 				
@@ -69,9 +54,10 @@
 			 				@if($admin==1)
 			 				<td>
 			 					<form action="/save-remarks" method="post">
-			 						<input type="hidden" name="uid" value="<%=pid %>">
-			 						<input class="form-control" name="remarks" value="<%=remarks%>" placeholder="Type remarks and press Enter">
-			 						<input type="hidden" name="pid" value="${pid}">
+			 						<input class="hidden" name="_token" value="csrf_token()">
+			 						<input type="hidden" name="uid" value="{{$user->userid}}">
+			 						<input type="hidden" name="pid" value="{{$project->project_id}}">
+			 						<input class="form-control" name="remarks" value="{{$user->remarks}}" placeholder="Type remarks and press Enter">
 			 					</form>
 			 				</td>
 			 				@else
@@ -82,14 +68,14 @@
 			 				@if($admin==1)
 			 					<td>
 								@if($user->status=="applied")
-									<a href="/change-working-status?pid=${pid}&user=<%=pid%>&action=accept" class="btn btn-xs btn-success">Accept</a>
-									<a href="/change-working-status?pid=${pid}&user=<%=pid%>&action=delete" class="btn btn-xs btn-danger">Delete Request</a>
+									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=accept" class="btn btn-xs btn-success">Accept</a>
+									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=delete" class="btn btn-xs btn-danger">Delete Request</a>
 								@elseif($user->status=="working")
-									<a href="/change-working-status?pid=${pid}&user=<%=pid%>&action=hold" class="btn btn-xs btn-warning">Put on Hold</a>
-									<a href="/change-working-status?pid=${pid}&user=<%=pid%>&action=end" class="btn btn-xs btn-info">Completed Project</a>
+									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=hold" class="btn btn-xs btn-warning">Put on Hold</a>
+									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=end" class="btn btn-xs btn-info">Completed Project</a>
 								@elseif($user->status=="On Hold")
-									<a href="/change-working-status?pid=${pid}&user=<%=pid%>&action=accept" class="btn btn-xs btn-success">Started Working</a>
-									<a href="/change-working-status?pid=${pid}&user=<%=pid%>&action=end" class="btn btn-xs btn-info">Completed Project</a>
+									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=accept" class="btn btn-xs btn-success">Started Working</a>
+									<a href="/change-working-status?pid={{$project->project_id}}&user={{$user->userid}}&action=end" class="btn btn-xs btn-info">Completed Project</a>
 								@else
 									<p class="bg-success">Completed</p>
 								@endif
@@ -101,11 +87,9 @@
 			 			 @endforeach
 			 		</table>
 		 		<br>
-		 		<%
-		 		String toapply=(String)request.getAttribute("toapply");
-		 		if(toapply!=null && toapply.equals("1") ){%>
-		 		<a class="btn btn-primary" href="/apply-project?id=${pid}">Apply For this Project</a>
-		 		<%} %>
+		 		@if($toapply==1)
+		 		<a class="btn btn-primary" href="/apply-project/{{$project->project_id}}">Apply For this Project</a>
+		 		@endif
 		 		<hr>
 		 		<h3 class="ctitle">Skills used in this project</h3>
 		 		<div class="hline"></div>
@@ -116,24 +100,21 @@
 			 				<th>No of Requirements</th>
 			 				
 			 				</tr>
-		 			<% 
-				 	ResultSet tset=(ResultSet)request.getAttribute("tagset");
-			 		while(tset.next()){
-			 			String tname=tset.getString("tagname");
-			 			String req=tset.getString("requirement");
-			 			%>
+		 			
 			 			@foreach($tagmap as $map)
 			 				
 			 			<tr>
-			 				<td><a href="/tags/<%=tname %>"><b>{{$map->tagname}}</b></a></td>
+			 				<td><a href="/tags/{{$map->tagname}}"><b>{{$map->tagname}}</b></a></td>
 			 				@if($admin==1)
 			 				
 				 				<td>	 
 				 				<form method="post" action="/change-project-requirements">
+			 						<input class="hidden" name="_token" value="csrf_token()">
+				 				
 				 				<div class="col-md-9">				
-					 				<input type="number" name="req" class="form-control" value="<%=req%>">
-					 				<input type="hidden" name="tagname" value="<%=tname %>">
-					 				<input type="hidden" name="pid" value="${pid}">
+					 				<input type="number" name="req" class="form-control" value="{{$map->requirement}}">
+					 				<input type="hidden" name="tagname" value="{{$map->tagname}}">
+					 				<input type="hidden" name="pid" value="{{$project->project_id}}">
 					 			</div>
 					 			<div class="col-md-3">
 					 				<button class="btn btn-success btn-small">Save</button>

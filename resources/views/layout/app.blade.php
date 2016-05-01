@@ -64,7 +64,7 @@
 	              <ul class="dropdown-menu">
 	                <li><a href="/user/{{Auth::user()->userid}}">HOME</a></li>
 	                <li><a href="/add-project">ADD NEW PROJECT</a></li>
-	                <li><a href="/edit-profile">EDIT PROFILE</a></li>
+	                <!--li><a href="/edit-profile">EDIT PROFILE</a></li-->
 	                <li><a href="/logout">LOGOUT</a></li>
 	              </ul>
 	            </li>

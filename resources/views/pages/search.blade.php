@@ -26,7 +26,7 @@
 				 		<csmall2>By: <a href="/user/{{$project->userid}}">{{$project->name}}</a></csmall2>
 			 		</p>
 			 		<p>
-			 		{{$project->description}}
+			 		{!!$project->description!!}
 			 		</p>
 			 		<p><a href="/project/{{$project->project_id}}">[Browse Project]</a></p>
 			 		<div class="hline"></div>

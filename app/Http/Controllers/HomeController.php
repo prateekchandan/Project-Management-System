@@ -8,6 +8,7 @@ use App\Http\Requests;
 use DB;
 use Auth;
 use App\User;
+use App\Project;
 use Session;
 class HomeController extends Controller
 {
@@ -61,8 +62,14 @@ class HomeController extends Controller
 		$users = DB::select(DB::raw("select *,start_time::date as date,end_time::date as end_date  from working_on natural join users where  project_id = :id"),array('id'=>$id));
 		$admin = (!Auth::guest() && Auth::user()->userid == $project->userid);
 
-		$tagmap = Db::table('tagmap')->where('project_id','=',$project->project_id)->get();
-		return view('pages.project',['tags'=>$tags,'project'=>$project,'users'=>$users,'admin'=>$admin,'tagmap'=>$tagmap]);
+		$toapply = 0;
+		if($admin==0 && !Auth::guest()){
+			$working_on = DB::table('working_on')->where('project_id','=',$project->project_id)->where('userid','=',Auth::user()->userid)->first();
+			$toapply = is_null($working_on);
+		}
+
+		$tagmap = DB::table('tagmap')->where('project_id','=',$project->project_id)->get();
+		return view('pages.project',['tags'=>$tags,'project'=>$project,'users'=>$users,'admin'=>$admin,'tagmap'=>$tagmap,'toapply'=>$toapply]);
 
 	}
 
@@ -93,6 +100,84 @@ class HomeController extends Controller
 	public function logout(){
 		Session::remove('user');
 		return redirect()->to('/');
+	}
+
+	public function add_project_view(){
+		if(Auth::guest())
+			return redirect()->to('login');
+		$tags = DB::table('tags')->get();
+
+		return view('pages.add_project',array('tags'=>$tags));
+	}
+
+	public function add_project(Request $request)
+	{
+		if(Auth::guest())
+			return redirect()->to('login');
+
+		$tags = $request->input('tags');
+		$project = new Project;
+		$project->project_name = $request->input('name');
+		$project->description = $request->input('desc');
+		$project->addedby = Auth::user()->userid;
+		$project->status = 'in progress';
+		$project->save();
+
+
+		
+		$insert = [];
+		foreach($tags as $tag) {
+			array_push($insert,['tagname'=>$tag,'project_id'=>$project->project_id]);
+		}
+		DB::table('tagmap')->insert($insert);
+		return redirect()->to('projects');
+	}
+
+	public function add_tag_view(){
+		if(Auth::guest())
+			return redirect()->to('login');
+		$tags = DB::table('tags')->get();
+
+		return view('pages.add_tag',array('tags'=>$tags));
+	}
+
+	public function add_tag(Request $request)
+	{
+		if(Auth::guest())
+			return redirect()->to('login');
+
+		$tagname = $request->input('tagname');
+		$tag=DB::table('tags')->where('tagname','=',$tagname)->first();
+		if(is_null($tag))
+			DB::table('tags')->insert([
+				['tagname'=>$tagname]
+				]);
+		return redirect()->back();
+
+	}
+
+	public function apply_project($id)
+	{
+		if(Auth::guest())
+			return redirect()->to('login');
+		$project = Project::find($id);
+		if(is_null($project))
+			return view('pages.error');
+
+		$working_on = DB::table('working_on')->where('project_id','=',$project->project_id)->where('userid','=',Auth::user()->userid)->first();
+		if(is_null($working_on))
+		{
+		
+			DB::table('working_on')->insert([[
+				'userid'=>Auth::user()->userid,
+				'project_id'=>$project->project_id,
+				'status'=>'applied',
+				'start_time'=>date('Y-m-d G:i:s')
+				]]);
+		}
+
+		return redirect()->to('project/'.$project->project_id);
+
 	}
 
 }

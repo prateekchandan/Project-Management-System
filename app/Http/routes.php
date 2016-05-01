@@ -22,4 +22,10 @@ Route::group(['middleware' =>[ 'web']],function(){
 	Route::get('/project/{id}', 'HomeController@projectView');
 	Route::get('/user/{userid}', 'HomeController@user');
 
+	Route::get('/add-project', 'HomeController@add_project_view');
+	Route::post('/add-project', 'HomeController@add_project');
+	Route::get('/add-tag', 'HomeController@add_tag_view');
+	Route::post('/add-tag', 'HomeController@add_tag');
+	Route::get('/apply-project/{id}', 'HomeController@apply_project');
+
 });

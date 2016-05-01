@@ -28,4 +28,7 @@ Route::group(['middleware' =>[ 'web']],function(){
 	Route::post('/add-tag', 'HomeController@add_tag');
 	Route::get('/apply-project/{id}', 'HomeController@apply_project');
 
+	Route::get('/signup', 'HomeController@signup_view');
+	Route::post('/signup', 'HomeController@signup');
+
 });

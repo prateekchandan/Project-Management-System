@@ -180,4 +180,32 @@ class HomeController extends Controller
 
 	}
 
+
+	public function signup_view(){
+		if(!Auth::guest())
+			return redirect()->to('/');
+
+		return view('pages.signup');
+	}
+
+	public function signup(Request $request)
+	{
+		if(!Auth::guest())
+			return redirect()->to('/');
+
+
+		$user = new User;
+		$user->name = $request->input('name');
+		$user->userid = $request->input('uid');
+		$user->email = $request->input('email');
+		$user->password = $request->input('password');
+		$user->type = $request->input('utype');
+		$user->phone = $request->input('phone');
+		$user->institute = $request->input('institute');
+		$user->roll_number = $request->input('roll');
+		$user->save();
+		Session::put('user',$user);
+		return redirect()->to('/');
+	}
+
 }
